@@ -1,0 +1,188 @@
+<html>
+
+
+	<head>
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+		<script>
+
+				//add event listener to document to wait for doc to be ready.  Attach callback function to event listener init.
+			$(document).ready(init);
+			
+				//defining function
+			function init(){
+				
+					keyListener()
+					addImageListener();
+
+
+			function addImageListener(){
+
+					$('#character1').on('click', function(e){
+							console.log(e);
+							//alert('death star');
+							$(this).animate({left:'300px', 'top':'300px'});
+						
+							setTimeout(function(){
+								$('#character1').animate({left:'0px', 'top':'0px'});
+							}, 2000)
+
+					})
+				}
+
+
+			}
+
+			//add event Listener to html element that detects left or right key, and sends data to callback function
+			function keyListener(){
+
+					$('html').on('keydown', keyCallback);
+
+			}
+			//defining keyCallback function for keyListener.  User presses left arrow or right arrow.
+			function keyCallback(e){
+				//alert(e.keyCode);
+				//console.log(e);
+
+				keyCode= e.keyCode;
+
+				switch(keyCode){
+
+					case 39:
+						//alert('right')
+						//character position - right
+						charPos=$('#character').css('left');
+						charPos= charPos.replace('px', '');
+						charPos= parseInt(charPos);
+						//now charPos is a number
+						charPos= charPos+20;
+						newPos= charPos +"px";
+						$('#character').css({'left':newPos})
+
+					break;
+
+					case 37:
+							//character position - left
+						charPos=$('#character').css('left');
+						charPos= charPos.replace('px', '');
+						charPos= parseInt(charPos);
+						//now charPos is a number
+						charPos= charPos-20;
+						newPos= charPos +"px";
+						$('#character').css({'left':newPos})
+						
+					break;
+
+					case 38:
+							//character position - up
+						charPos=$('#character').css('top');
+						charPos= charPos.replace('px', '');
+						charPos= parseInt(charPos);
+						//now charPos is a number
+						charPos= charPos-20;
+						newPos= charPos +"px";
+						$('#character').css({'top':newPos})
+						
+					break;
+
+					case 40: 
+							//character position - down
+						charPos=$('#character').css('top');
+						charPos= charPos.replace('px', '');
+						charPos= parseInt(charPos);
+						//now charPos is a number
+						charPos= charPos+20;
+						newPos= charPos +"px";
+						$('#character').css({'top':newPos})
+						
+					break;
+				}
+
+
+
+			}
+
+
+		</script>
+
+		<style>
+
+			#character{
+
+				position:absolute;
+				left:40px;
+				top:200px;
+				width:100px;
+				height:40px;
+				/*background-color:purple;*/
+			
+
+		}
+
+
+			#character1{
+
+				position:absolute;
+				left:500px;
+				top:200px;
+				width:200px;
+				height:200px;
+
+		}
+
+			.img1{
+				background-image: url(//Users/admin/Desktop/Apps/HTML Basics/Space.jpg);
+				width: 100%;
+				height: 100%;
+				top:0%;
+				bottom: 0%;
+				left: 0%;
+				position: absolute;
+				z-index:-1;
+
+
+
+			}
+			
+
+
+
+		}
+
+
+
+		</style>
+
+
+
+	</head>
+
+
+	<body>
+
+		
+
+		<div>
+
+			<img src='/Users/admin/Desktop/Apps/HTML Basics/Flying_Saucer.png' id='character'>
+
+			<img src='/Users/admin/Desktop/Apps/HTML Basics/deathStar.png' id='character1'>
+
+
+		</div>
+
+	
+		<div>
+			<img src='/Users/admin/Desktop/Apps/HTML Basics/Space.jpg' class='img1'>
+		
+
+		</div>
+
+			
+			
+
+
+	</body>
+
+
+</html>

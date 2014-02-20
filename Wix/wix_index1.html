@@ -1,0 +1,174 @@
+<html>
+<head>
+    <title>Nin and Tim's Wix Lounge Project</title>
+
+    
+
+    <style>
+
+    /* to get the image to show properly on the web page, add bckground-size */
+
+
+      body{
+        text-align: center;
+         -webkit-background-size: cover;
+         -moz-background-size: cover;
+         -o-background-size: cover;
+         background-size: cover;
+   
+    	}
+
+      .background-image {
+        position: absolute;
+        left: 0px;
+        right: 0;
+        top: 0px;
+        z-index: -1;
+        display: block;
+        background-image: url("http://thecoded.com/facebook/wix/img/class.jpg");
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        -webkit-filter: blur(10px);
+
+    }
+
+     #name{
+      font-size:40px;
+      color: #ffffff;
+      font-family: Verdana, Geneva, sans-serif;
+      text-align:center;
+      text-shadow: 5px 5px 5px #111;
+      z-index: 10
+      
+
+    }
+
+      /* need to reposition faceboook button. will come back to this
+      #login {
+        z-index: 2;
+        position: absolute;
+        text-align: center;
+        margin: 0 auto; 
+
+      }*/
+    	
+    </style>
+
+
+	
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+    <script>
+
+      //array that will store our first Facebook response with the user's info
+  var response1;
+
+  //array that will store our second facebook response with the user's photos
+  var response2;
+
+      function loginUser() {
+        FB.login(function(response) { }, {scope:'email, user_photos'});
+
+
+      }
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '723273311029681', // App ID
+          channelUrl : 'http://thecoded.com', // channel file
+          status     : true, // check login status
+          cookie	   : true, // enable cookies to allow the server to access the session
+          xfbml      : true  // parse XFBML
+        });
+        FB.Event.subscribe('auth.statusChange', handleStatusChange);
+      };
+
+
+// Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "https://connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+
+      //This is the function that Facebook said to use
+      //(function(d, s, id){
+        // var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        // if (d.getElementById(id)) {return;}
+        // js = d.createElement(s); js.id = id; 
+         //js.src = "//connect.facebook.net/en_US/all.js";
+         //ref.parentNode.insertBefore(js,ref); // changed from fjs to ref. what does that do ?? changing ref back to fjs allows the fb login
+       //}(document));
+
+     //callback function of the status change from not logged in to logged in
+     function handleStatusChange(response) {
+       document.body.className = response.authResponse ? 'connected' : 'not_connected';
+
+       if (response.authResponse) {
+        console.log(response);
+        response1= response;
+        updateUserInfo(response);
+        
+
+       }
+     }
+
+     function updateUserInfo(response) {
+     FB.api('/me', function(response) {
+      response1 = response;
+      
+      //$('#email').html(response1['email']);
+      //comented out email address for privacy
+      $('#name').html(response1['name']);
+      $('#picture').html(response1['picture']);
+    });
+
+
+
+      FB.api('/me/photos', function(response) {
+      response2= response;
+
+      // this would show the first big photo if left in$('#photos').html("<img src='"+response2['data'][0]['images'][0]['source'] + "'>");
+      //here we will create user user photo information and do things with it...
+
+      for(i in response2['data']){
+
+        //do something with each image
+
+        //example:
+        console.log("photos"+response2['data'][0]['images'][i]['source'])
+
+        $('body').append("<img class='tile' src='"+response2['data'][i]['images'][0]['source'] + "'>  ");
+
+         
+      }
+         
+      })
+
+
+    }
+
+    </script>
+
+</head>
+
+<body>
+
+
+  <div id="login">
+    <img id='FBlogo' src="fb.png" style="width: 300" id="cFb" onClick="loginUser();"><center><font size=1>
+  </div>
+
+  <div id="fb-root"></div>
+	<div class="background-image"></div>
+  <div id="email"></div>
+  <div id="photos"></div>
+  <div id="name"</div>
+  <div id="picture"</div>
+	
+  
+
+</body>
+</html>

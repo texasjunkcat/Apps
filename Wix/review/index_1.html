@@ -1,0 +1,72 @@
+<html>
+
+<head>
+<script src="js/jquery.js"></script>
+<script>
+
+    $(document).ready(init);
+
+    function init(){
+        addButtListener();
+    }
+
+    function addButtListener(){
+        $('#buttSearch').on('click',showNews);
+    }
+
+    function showNews(){
+
+        $.ajax({
+            url: "doSome.php",
+
+            context: document.body
+        })
+            .done(function(response) {
+            $("body").append(response);
+        })
+    }
+
+</script>
+
+    <style>
+    .resultNew{
+        font-family: "Helvetica";
+        font-size:13px;
+        border-radius:10px;
+        background-color:rgba(255,255,255,0.5);
+
+    }
+
+    #buttSearch{
+
+        text-align: center;
+        width: 20%;
+        height:5%;
+    }
+
+    .resultNew li{
+
+        font-size:6px;
+        /*position:relative;*/
+    }
+
+    body{
+        background-color: blue;
+        background-image: url("http://free.wallpaperbackgrounds.com/sci%20fi/space/43865-42483.jpg");
+    }
+
+    </style>
+</head>
+
+<body>
+
+    <button type="button" id="buttSearch">ESPN.GO.COM</button>
+
+
+
+</body>
+
+
+
+
+</html>

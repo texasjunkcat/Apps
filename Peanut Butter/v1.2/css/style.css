@@ -1,0 +1,233 @@
+/*
+	Author: PSD Booster
+	Author URI: http://www.psdbooster.com/
+*/
+
+
+/****************************************************************************
+CSS RESET
+****************************************************************************/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address,
+big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl,
+dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas,
+details, embed,  figure, figcaption, footer, header, hgroup,  menu, nav, output, ruby, section, summary, time, mark, audio,
+video {	margin: 0; 	padding: 0;	border: 0;	font-size: 100%;	font: inherit;	vertical-align: baseline;}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+ol, ul { list-style: none;}
+blockquote, q {	quotes: none;}
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+table {	border-collapse: collapse; border-spacing: 0; }
+
+
+/****************************************************************************
+FONTS
+****************************************************************************/
+@font-face {
+    font-family: 'proxima_nova_rgbold';
+    src: url('../fonts/proximanova-bold-webfont.eot');
+    src: url('../fonts/proximanova-bold-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/proximanova-bold-webfont.woff') format('woff'),
+    url('../fonts/proximanova-bold-webfont.ttf') format('truetype'),
+    url('../fonts/proximanova-bold-webfont.svg#proxima_nova_rgbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/****************************************************************************
+BASIC STYLES
+****************************************************************************/
+
+body { overflow-x: hidden; background: #fff; color: #000; font: 14px 'Raleway', sans-serif; }
+
+a { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; color: #5dca88; }
+a:focus { text-decoration: none; }
+a:hover, a:active { outline: 0; }
+
+h1, h2, h3, h4, h5, h6 { font-family: 'Raleway', sans-serif; color: #000; }
+h1 { font-size: 30px; }
+h1 a { color: #000; }
+h2 { font-size: 24px; }
+h2 a { color: #000; }
+h3 { font-size: 18px; }
+h3 a { color: #000; }
+h4 { font-size: 14px; }
+h4 a { color: #000; }
+h5 { font-size: 12px; }
+h5 a { color: #000; }
+h6 { font-size: 10px; }
+h6 a { color: #000; }
+
+ul li a { text-decoration: none; }
+
+p strong { font-weight: bold; }
+p em { font-style: italic; }
+p { line-height: 24px !important;}
+
+::-moz-selection { background: #fe57a1; color: #fff; text-shadow: none; }
+::selection { background: #fe57a1; color: #fff; text-shadow: none; }
+
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+
+
+/****************************************************************************
+HEADER
+****************************************************************************/
+header { min-height:110px; background: #fff; width: 100%; z-index: 100; }
+header .logo { display: inline-block; padding-top: 40px; float: left;}
+header .logo h1 { font: 30px 'proxima_nova_rgbold', sans-serif;  color: #3c3d42;}
+
+header .nav { display: inline-block; float: left; padding-top: 45px; margin-left: 0px; }
+header .nav ul li { display:inline-block; padding: 0px 14px; }
+header .nav ul li a { font: 14px 'Raleway', sans-serif;  color: #747a7a; text-decoration: none; }
+header .nav ul li a.active, header .nav ul li a:hover, header .nav ul li.current a { color: #3c3d42; }
+header .nav ul li:first-child { padding-left: 7px; }
+
+header .contact { display: inline-block; float: right; padding-top: 44px; }
+header .phone { font: 18px 'Raleway', sans-serif; color: #3c3d42;  background: url("../images/phone-icon.png") no-repeat left 3px; padding-left: 24px; display: inline-block; height: 16px; margin-right: 17px; padding-bottom: 6px;}
+header .email { font: 18px 'Raleway', sans-serif; color: #3c3d42; background: url("../images/message-icon.png") no-repeat left 4px; padding-left: 30px; display: inline-block; height: 20px;}
+
+
+/****************************************************************************
+BANNER
+****************************************************************************/
+#s1 { width: 100% !important; }
+
+.banner { background: url("../images/banner-bg.jpg") no-repeat center center; background-size: cover; height: 730px; width: 100% !important; }
+.banner-content { height: 730px; }
+.banner-content h1 { font: 36px 'Raleway', sans-serif; color: #ffffff; font-weight: 700; margin-top: 173px;  }
+.banner-content h4 { font: 36px 'Raleway', sans-serif; color: #ffffff; font-weight: 300; margin-bottom: 33px; }
+.banner-content p { font: 14px 'Raleway', sans-serif; color: #9dc7d1; line-height: 24px; margin-bottom: 50px; }
+
+.banner2 { background: url("../images/banner-bg2.jpg") no-repeat center center; background-size: cover; height: 730px; width: 100% !important; }
+.banner2 .banner-content { background: none; text-align: center; }
+.banner2 .banner-content h1 { font-size: 48px; color: #ffffff; }
+.banner2 .banner-content h4 { font-size: 48px; color: #ffffff; }
+.banner2 .banner-content .download { background: #fff; border-color: #fff; color: #3c3d42; }
+
+.download { transition: all 1s; -webkit-transition: all 1s; border: 3px solid #92b1b6; display: inline-block; border-radius: 50px; font: 21px 'Raleway', sans-serif; color: #ffffff; font-weight: 700; text-decoration: none; padding: 14px 54px; display: inline-block; }
+.download:hover { opacity: 0.5; color: #ffffff; }
+
+.banner-image { margin-top: 120px; margin-left: -107px; }
+.banner-image img { margin-bottom: -3px; height: 609px; }
+
+
+/****************************************************************************
+FEATUERS
+****************************************************************************/
+.heading { text-align: center;   margin-bottom: 60px;}
+.heading h1 { font: 36px 'Raleway', sans-serif; color: #636c6c; font-weight: 700; padding-bottom: 28px; padding-top: 95px;  }
+.heading p { font: 16px 'Raleway', sans-serif; color: #afb8b8; width: 770px; margin: 0 auto; }
+
+.features .aside { float: left; margin-bottom: 105px; }
+.aside ul { padding-top: 43px; margin-left: 40px; width: 310px; float: left; border-right: 1px solid #dbe2e2; }
+.aside ul li { display: inline-block; margin-bottom: 33px; width: 100%; }
+.aside ul li a { outline: none; font: 20px 'Raleway', sans-serif; padding: 25px 0px 30px 90px; color: #9fa9a9; display: block; }
+.aside ul li:hover,
+.aside ul li.ui-state-active { border-right: 11px solid #5dca88; width: 99%; }
+.aside ul li:hover a,
+.aside ul li.ui-state-active a { color: #5dca88; }
+
+.aside ul .heart { background: url("../images/heart-icon.png") no-repeat left center; }
+.aside ul .heart:hover, .aside ul .heart.ui-state-active { background: url("../images/heart-hover.png") no-repeat left center; }
+.aside ul .box { background: url("../images/bag-icon.png") no-repeat left center; }
+.aside ul .box:hover, .aside ul .box.ui-state-active { background: url("../images/bag-hover.png") no-repeat left center;  }
+.aside ul .leaf { background: url("../images/leaf-icon.png") no-repeat left center; }
+.aside ul .leaf:hover, .aside ul .leaf.ui-state-active { background: url("../images/leaf-hover.png") no-repeat left center; }
+.aside ul .space { background: url("../images/space-icon.png") no-repeat left center; }
+.aside ul .space:hover, .aside ul .space.ui-state-active { background: url("../images/space-hover.png") no-repeat left center; }
+.aside ul .umbrella { background: url("../images/umbrella-icon.png") no-repeat left center; }
+.aside ul .umbrella:hover, .aside ul .umbrella.ui-state-active { background: url("../images/umbrella-hover.png") no-repeat left center; }
+
+.features .feature-detail { float: right; width: 700px; }
+.features .feature-detail img { display: block; margin: 20px 0 0px; max-width: 100%; }
+.features .feature-detail img.icon { margin: 87px auto; }
+.features .feature-detail iframe { margin: 30px auto 0px; max-width: 100%; }
+
+.feature-detail .heading { text-align: left; margin-top: 40px; padding-right: 50px; }
+.feature-detail .heading h2 { font: 24px 'Raleway', sans-serif; color: #636c6c; font-weight: 700; padding-bottom: 27px; }
+.feature-detail .heading p { width: auto; font: 16px 'Raleway', sans-serif; color: #afb8b8; line-height: 24px; }
+
+
+/****************************************************************************
+ONE-IPHONE
+****************************************************************************/
+.iphone-detail { background: #f2f9fe;  }
+.iphone-detail .about-iphone {  margin-top: 155px;  }
+.iphone-detail .about-iphone h1 { font: 36px 'Raleway', sans-serif; background: url("../images/line.png") no-repeat left bottom; font-weight: 700; color: #5dca88; padding-bottom: 22px;}
+.iphone-detail .about-iphone h2 { font: 36px 'Raleway', sans-serif; color: #8c9494; padding: 40px 0px 40px 0px;  }
+.iphone-detail .about-iphone p { font: 16px 'Raleway', sans-serif; color: #8c9494; padding-right: 125px; margin-bottom: 47px; }
+.iphone-detail .image-section { text-align: center; }
+.iphone-detail .image-section img { padding-top: 60px; padding-bottom: 60px;}
+.iphone-detail .learn { border: 3px solid #c2cace; color: #636c6c; padding: 16px 50px; }
+
+
+/****************************************************************************
+SCREENSHOTS
+****************************************************************************/
+.screenshots { position: relative; }
+.screenshots .heading h1 { padding-bottom: 20px; }
+.screenshots .heading p { width: auto; margin-bottom: 20px; }
+.screenshots .caroufredsel_wrapper { margin-bottom: 122px !important; }
+.screenshots .slider { margin-left: 65px; }
+.screenshots .slide { margin-left: 0px; text-align: center; opacity: 1; }
+.screenshots .slide p { padding: 38px 50px 0px; color: #8c9494; }
+.screenshots .next { position: absolute; top: 50%; right: 0; margin-top: -24px; background: url("../images/next.png") no-repeat; width: 29px; height: 48px; float: right; z-index: 90; }
+.screenshots .prev { position: absolute; top: 50%; left: 0; margin-top: -24px; background: url("../images/prev.png") no-repeat; width: 29px; height: 48px; float: left; z-index: 90; }
+
+
+/****************************************************************************
+ABOUT US
+****************************************************************************/
+.about .heading h1 { padding-bottom: 40px; }
+.about .heading { margin-bottom: 0px !important; }
+
+#s7 { width: 100%; text-align: center; }
+#s7 div { width: 100%; }
+#s7 figure { margin-bottom: 42px;}
+#s7 figure img { border-radius: 50%; width: 100px; height: 100px; }
+#s7 p { font: 24px  'Droid Serif', serif; color: #8c9494; font-style: italic; padding-bottom: 27px; }
+#s7 span { font: 24px 'Raleway', sans-serif; color: #5dca88; line-height: 24px; padding-bottom: 18px; }
+
+.pager { margin-bottom: 113px; }
+.pager a { display: inline-block; background: url("../images/circle.png") no-repeat; width: 10px; height: 10px; font-size:0px; margin: 0px 5px; }
+.pager a.activeSlide { background: url("../images/circle-active.png") no-repeat; }
+
+
+/****************************************************************************
+SUBSCRIBE
+****************************************************************************/
+.subscribe { text-align: center; padding-top: 84px; background: #f3f5f5; }
+.subscribe h1 { background: url("../images/message-icon-big.png") no-repeat left 8px; font: 36px 'Raleway', sans-serif; color: #8c9494; padding-left: 60px; margin-bottom: 54px; display: inline-block; }
+.submit-form { text-align: center; margin-bottom: 111px;}
+.submit-form input[type="text"] { font: 14px 'Raleway', sans-serif; color: #8c9494; padding-left: 30px; border: 2px solid #bbc3c2; border-radius: 50px; position: relative; width: 534px; height: 47px; padding-right: 200px; }
+.submit-form input[type="text"].error { border-color: #f00; }
+.submit-form input[type="submit"] { outline: none; transition: all 1s; -webkit-transition: all 1s; font: 20px 'proxima_nova_rgbold', sans-serif;  color: #ffffff; background: #5dca88; border-radius: 50px; border: none; position: absolute; width: 170px; height: 59px; margin-left: -169px;}
+.submit-form input[type="submit"]:hover { opacity: 0.5; }
+.submit-form label.error { display: none !important; }
+.submit-form p { text-align: center; font: 16px 'Raleway', sans-serif; color: #5dca88; }
+
+
+/****************************************************************************
+FOOTER
+****************************************************************************/
+footer { background: #2d312f; text-align: center; padding-top: 70px; }
+footer h3 { font: 24px 'Raleway', sans-serif; color: #8c9494; padding-bottom: 32px; }
+
+footer .social { margin-bottom: 66px; }
+footer .social a { margin: 0px 8px; width: 43px; height: 42px; display: inline-block; transition: all 1s; -webkit-transition: all 1s; }
+footer .social a:hover { opacity: 0.5; }
+footer .social .facebook { background: url("../images/fb-icon.png") no-repeat; }
+footer .social .twitter { background: url("../images/twitter-icon.png") no-repeat; }
+footer .social .pin { background: url("../images/pin-icon.png") no-repeat; }
+footer .social .google { background: url("../images/google-icon.png") no-repeat; }
+footer .social .youtube { background: url("../images/youtube-icon.png") no-repeat; }
+
+.footer-nav { margin-bottom: 48px; }
+.footer-nav ul li { display: inline-block;  }
+.footer-nav ul li a { font: 14px 'Raleway', sans-serif; color: #8c9494; padding-right: 20px; }
+.footer-nav ul li a:hover { color: #5dca88; }

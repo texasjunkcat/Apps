@@ -1,0 +1,57 @@
+<html>
+
+    <head>
+        <script src="js/jquery.js"></script>
+               <script>
+
+                    //create array with 5 nearest people - assoc. array has name:"color"
+        /*people= {martha:"red", devin:"red"};
+
+                    //for loop through all
+        for(i in people){
+
+                 //print name of person if their shirt is red
+               
+                   if(people[i]=="red"){
+                        console.log(i);
+                   }
+
+        }*/
+
+        function search(){
+
+            if($('#webSubmit').val().indexOf("http") == -1){
+
+                console.alert("not a URL!");
+                return;
+            }
+
+            $.ajax({
+
+                url:"cloud/doSome.php",
+                data:{siteUrl:$('#webSubmit').val()},
+                complete: function(transport){
+
+                    $('#websiteData').html(transport.responseText);
+                }
+            })
+        }
+
+            </script>
+
+    </head>
+
+    <body>
+            <div id="container">
+                    <input id="webSubmit" placeholder="site url" onblur="search()">
+                    <input type="button" value="submit">
+
+                    <div id="websiteData">
+
+                    </div>
+            </div>
+
+
+    </body>
+
+</html>

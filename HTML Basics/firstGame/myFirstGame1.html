@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+       <script>
+
+                //add event listener to document to wait for doc to be ready. Attach callback to eventlistener init.  This goes at the top of every code so it doesn't load before the doc is ready.
+            $(document).ready(init);
+
+                //defining funtion 
+            function init(){
+                
+                    keyListener()
+            }
+
+            //add event listener to html element that detects left or right key and sends data to callback function
+            function keyListener(){
+
+                    $('html').on('keydown', keyCallback);
+
+            }
+
+            //callback function for  keyListener.  (e) represents event.
+            function keyCallback(e){
+                //alert(e.keyCode);
+                keyCode= e.keyCode;
+                
+                //switch is a conditional statement.  it takes in parameters. if case x happens, then y function.
+                switch(keyCode){
+
+                    case 37:
+                        charPos=$('#character').css('left');
+                        charPos= charPos.replace('px', '');
+                        charPos = parseInt(charPos);
+                        //now charPos is a number
+
+                        charPos= charPos-5;
+                        newPos= charPos +"px";
+                        $('#character').css({'left':newPos})
+                    break;
+
+                    case 39:
+                         //character position
+                        charPos=$('#character').css('left');
+                        charPos= charPos.replace('px', '');
+                        charPos = parseInt(charPos);
+                        //now charPos is a number
+
+                        charPos= charPos+5;
+                        newPos= charPos +"px";
+                        $('#character').css({'left':newPos})
+                    break;
+                }
+                
+            }
+
+
+       </script>
+
+
+       <style>
+            #character{
+                position:absolute;
+                left:40px;
+                top:200px;
+                height:100px;
+                width:40px;
+                background-color:blue;
+            }
+
+
+       </style>
+
+    </head>
+
+
+    <body>
+
+                <div id="character">
+
+                </div>
+        
+    </body>
+
+
+
+</html>

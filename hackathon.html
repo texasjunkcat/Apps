@@ -1,0 +1,176 @@
+﻿<html>
+
+
+  <head>
+
+    <title>Karate Kid</title>
+
+
+    <style>
+
+      #container{
+
+            width:100px;
+            height: 100%;
+            z-index: 1;
+            position:fixed;
+            top:0px;
+            left:0px;
+            background-image: url('images/bg.png');
+            background-size: 100% auto;
+      }
+
+
+
+
+        #mainChar{
+
+          position:absolute;
+          height:10%;
+          width:10%;
+          left:45%;
+          top:45%;
+          background-color: blue;
+          z-index:2;
+}
+
+        #rightArrow{
+
+          background-image: url('images/right.png');d
+          background-size: 100% auto;
+        
+        }
+
+
+    </style>
+
+
+    <script src="js/jquery.js"></script>
+
+<script>
+
+    var state = 1;
+
+      //1 violence stat
+      //1.5 violence intensity
+      //2 = emotional abuse state
+      //2.5 emothional intensity
+      //3 ablity and need for shelter
+      //3.5 urgency of need for shelter
+
+      userID = 0;
+      //userID changes according to their facebook ID
+
+      userData = {"rId":0, "firstName":"Sue", "lastName": "Ellen-Jones","ip":"250.250.250.0", "dob":false, "gender":"female", "email":"sue@gmail.com", "phoneNumber":"555-555-5555","photoURL":"facebook.com/sue", "abusers":{"name":"john","photo":"facebook.com/john"}, };
+
+      userSettings = {"userID":0, "callPoliceViolence":6,"callPoliceEmotional":9,"recordViolenceLevel":1, "recordEmotionalLevel":3, "notificationBeforeRealInfo":true, }
+
+
+
+      </script>
+
+      <script>
+
+      $(document).ready(init);
+
+      function init(){
+
+          detectUserStart();
+          detectCharacterMovement();
+          detectIntensity();
+          clickOptions();
+
+
+      }
+
+
+      function detectUserStart(){
+
+
+
+      }
+
+
+      function detectCharacterMovement(){
+
+        $('#leftArrow').on('click', moveLeft);
+        $('#RightArrow').on('click', moveRight);
+
+
+      }
+
+
+      function moveLeft(e) {
+        
+        //get character position
+
+        //adjust character position
+
+        leftPos = parseInt($('mainChar').css('left'));
+        newPos = leftPos-10;
+
+        $('#mainChar').animate({'left', newPos+"px"}, 500)
+      }
+
+      function moveRight(e) {
+        
+      }
+
+      function detectIntensity(){
+
+
+
+      }
+
+      function clickOptions(){
+
+
+
+      }
+
+      function facebookLogin(){
+
+
+
+      }
+      
+    </script>
+
+    <script>
+
+    var state = 1;
+
+      //1 violence stat
+      //1.5 violence intensity
+      //2 = emotional abuse state
+      //2.5 emothional intensity
+      //3 ablity and need for shelter
+      //3.5 urgency of need for shelter
+
+      userID = 0;
+      //userID changes according to their facebook ID
+
+      userData = {"rId":0, "firstName":"Sue", "lastName": "Ellen-Jones","ip":"250.250.250.0", "dob":false};
+
+      userSettings = {"userID":0, "callPoliceViolence":6,"callPoliceEmotional":9, }
+
+
+
+      </script>
+  </head>
+
+
+
+  <body>
+
+
+<div id="container")
+
+
+
+
+
+  </body>
+
+
+</html>

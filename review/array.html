@@ -1,0 +1,62 @@
+<html>
+
+<head>
+<script src="/Users/Admin/Desktop/Apps/js/jquery.js"></script>
+<script>
+
+
+        
+
+        for (var i = 0; i < teamsArray.length; i++){
+
+
+            console.log(teamsArray[i])
+            
+        };
+
+      
+
+
+        function search(){
+
+            $.ajax({
+
+                url:'cloud/tweetSearch.php'
+                data:{siteUrl:$('websubmit').val()},
+                complete: function(transport){
+
+                    $('#websiteData').html(transport.responseText);
+                }
+
+
+            })
+        }
+
+</script>
+
+    <style>
+   
+
+
+    
+
+    </style>
+</head>
+
+<body>
+
+    <div id='container'>
+            <input id='webSubmit' placeholder='Enter URL' onblur='search()'>
+
+            <div id='websiteData'></div>
+
+            <div class='resultNew'></div>
+
+    
+
+</body>
+
+
+
+
+</html>

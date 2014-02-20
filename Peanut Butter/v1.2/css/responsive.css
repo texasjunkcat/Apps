@@ -1,0 +1,111 @@
+/****************************************************************************
+(1200)
+****************************************************************************/
+@media only screen and (min-width: 980px) and (max-width: 1200px)
+{
+    header .nav ul { margin-left: 35px; }
+    header .contact { margin: 0; padding-top: 33px; }
+    .features .feature-detail { width: 500px; }
+}
+
+
+/****************************************************************************
+(800 X 600) + (768 X 1024)
+****************************************************************************/
+@media only screen and (min-width: 768px) and (max-width: 979px)
+{
+    header .nav { padding-top: 40px; }
+    header .nav ul { margin-left: 35px; }
+    header .nav ul li { padding: 0px 5px; }
+    header .contact { margin: 0; padding-top: 28px; }
+    .aside ul { margin-left: 0px; width: 230px; }
+    .aside ul li a { padding: 25px 0 30px 70px; }
+    .features .feature-detail { width: 430px; text-align: left; }
+    .feature-detail .heading { padding: 0px; text-align: left; }
+    .iphone-detail .about-iphone { margin-top: 85px; }
+    .iphone-detail .about-iphone h1 { font-size: 30px; }
+    .iphone-detail .about-iphone h2 { font-size: 30px; padding: 20px 0px; }
+    .iphone-detail .about-iphone p { padding: 0px; margin-bottom: 30px; }
+    .slide.span4 { float: left; width: 190px; padding: 0px 10px; }
+    .screenshots .slide p { padding: 38px 20px 0; }
+    .submit-form input[type="text"] { width: 490px; }
+}
+
+
+/****************************************************************************
+(600 X 800)
+****************************************************************************/
+@media only screen and (min-width: 500px) and (max-width: 767px)
+{
+    header .logo { text-align: center; }
+    header .nav { text-align: center; padding-top: 16px; }
+    header .contact { text-align: center; padding-top: 0px; margin-bottom: 20px; }
+    .banner { text-align: center; }
+    .banner-content { background: none; }
+    .aside ul { width: 250px; margin-left: 20px; }
+    .aside ul li a { padding: 15px 12px 10px 65px; }
+    .heading p { width: 80%; }
+    .features .feature-detail { width: 420px; }
+    .feature-detail .heading { text-align: center; padding: 0px; margin-top: 40px; }
+    .features .feature-detail img { margin: 20px auto 0px; }
+    .iphone-detail { text-align: center; }
+    .iphone-detail .about-iphone h1 { background-position: center bottom; }
+    .iphone-detail .about-iphone p { padding: 0; }
+    .iphone-detail .about-iphone { margin-top: 55px; }
+    .screenshots .caroufredsel_wrapper { width: 600px !important; }
+    .screenshots .slide p { padding: 38px 20px 0; }
+    .slide.span4 { float: left; width: 300px; }
+    .submit-form input[type="text"] { width: 450px; }
+}
+
+
+/****************************************************************************
+{320 X 480} + (480 X 320)
+****************************************************************************/
+@media only screen and (max-width: 499px)
+{
+    header .logo { text-align: center; }
+    header .nav { text-align: center; padding-top: 16px; }
+    header .contact { text-align: center; padding-top: 0px; margin-bottom: 20px; }
+    .banner { text-align: center; }
+    .banner-content { background: none; }
+    .aside ul { width: 50px; margin-left: 10px; }
+    .aside ul li { background-size: 80% auto !important; }
+    .aside ul li a { padding: 27px 24px; font-size: 0; }
+    .aside ul li:hover, .aside ul li.ui-state-active { border-right: 7px solid #5DCA88; width: 94%; }
+    .heading p { width: 80%; }
+    .features .feature-detail { width: 75%; margin-right: 10px; }
+    .feature-detail .heading { text-align: left; padding: 0px; margin-top: 27px; }
+    .features .feature-detail img { margin: 15px auto 0px; width: 50% }
+    .features .feature-detail img.icon { margin: 15px auto 0px; width: 50% }
+    .features .feature-detail iframe { max-width: 90%; height: auto; }
+    .iphone-detail { text-align: center; }
+    .iphone-detail .about-iphone h1 { background-position: center bottom; }
+    .iphone-detail .about-iphone p { padding: 0; }
+    .iphone-detail .about-iphone { margin-top: 25px; padding-bottom: 30px; }
+    .iphone-detail .image-section img { padding: 30px 0px; }
+    .screenshots .caroufredsel_wrapper { width: 300px !important; margin: 0 auto 40px !important; }
+    .screenshots .slide p { padding: 38px 20px 0; }
+    .screenshots .next, .screenshots .prev { top: auto; bottom: 40%; }
+    .slide.span4 { float: left; width: 300px; }
+    .subscribe h1 { font-size: 26px; line-height: 42px; }
+    .submit-form input[type="text"] { width: 200px; padding-right: 100px; }
+    .submit-form input[type="submit"] { width: 100px; margin-left: -100px; font-size: 16px; }
+}
+
+
+/****************************************************************************
+{320 X 480} + (480 X 320)
+****************************************************************************/
+@media only screen and (max-width: 345px)
+{
+    header .nav ul li { padding: 0px 5px; }
+    .feature-detail .heading h2 { font-size: 18px; }
+    .feature-detail .heading p { font-size: 12px; line-height: 18px; }
+    #s7 { width: 100% !important; }
+    .subscribe h1 { font-size: 20px; line-height: 42px; background-size: 10%; padding-left: 40px; }
+    .screenshots .next, .screenshots .prev { top: auto; bottom: 40%; }
+    .slide.span4, .screenshots .caroufredsel_wrapper { width: 250px !important; }
+    .submit-form input[type="text"] { width: 170px; padding-left: 20px; padding-right: 100px; }
+    .submit-form input[type="submit"] { width: 100px; margin-left: -100px; font-size: 16px; }
+}

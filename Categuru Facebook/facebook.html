@@ -1,0 +1,177 @@
+﻿<html>
+<head>
+
+    <link rel="stylesheet" href="animate.min.css">
+
+
+  <style>
+
+
+
+    #name{
+      font-size:40px;
+      color: #ffffff;
+      font-family: Verdana, Geneva, sans-serif;
+      text-align:center;
+      text-shadow: 5px 5px 5px #111;
+      
+
+    }
+
+    
+ 
+ 
+    .tile {
+      height: 300px;
+      width: 300px;
+      box-shadow: 10px 10px 10px #111;
+      box-shadow: 10px 10px 10px #111;  
+}
+
+
+    /*Ryan: This is the code I used (found via google) to fill in the background image (stretched without tiling)*/
+    body{
+      text-align: center;
+      background: url('http://p1.pichost.me/i/37/1604437.jpg') no-repeat center center fixed; 
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+  }
+
+   
+
+  </style>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+ 
+  <script> 
+      //this connects with animate.min.css to animate the Name text.  class=animated swing defined in div
+      $('#name').addClass('animated swing')
+
+  </script>
+
+  <script>
+
+
+  //array that will store our first Facebook response with the user's info
+  var response1;
+
+  //array that will store our second facebook response with the user's photos
+  var response2;
+
+  var snd = new Audio('dun_dun.mp3')
+
+  //function that will authenticate the user via Faabook, calling to the FB object
+  function loginUser() {    
+     FB.login(function(response) { }, {scope:'email, user_photos'});     
+     }
+
+     // FB object initialization
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '723273311029681', // App ID
+      channelUrl : 'http://thecoded.com/', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+
+    FB.Event.subscribe('auth.statusChange', handleStatusChange);
+  };
+
+  // Load the SDK Asynchronously
+  // importing Facebook's javascript code
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "https://connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+
+ 
+    //callback function of the status change from not logged in to logged in
+   function handleStatusChange(response) {
+     document.body.className = response.authResponse ? 'connected' : 'not_connected';
+
+     if (response.authResponse) {
+      console.log(response);
+      response1= response;
+      updateUserInfo(response);
+      
+
+     }
+   }
+
+
+
+   function updateUserInfo(response) {
+     FB.api('/me', function(response) {
+      response1 = response;
+      
+      //$('#email').html(response1['email']);
+      //comented out email address for privacy
+      $('#name').html(response1['name']);
+
+      $('#name').addClass('animated fadeInDownBig')
+      $('#photos').addClass('animated swing')
+      $('#FBlogo').addClass('animated bounceInUp')
+
+      snd.play();
+      snd.currentTime=0;
+     
+      //here we will use user data to populate into different areas of our website
+
+
+     });
+
+      FB.api('/me/photos', function(response) {
+      response2= response;
+
+      // this would show the first big photo if left in$('#photos').html("<img src='"+response2['data'][0]['images'][0]['source'] + "'>");
+      //here we will create user user photo information and do things with it...
+
+      for(i in response2['data']){
+
+        //do something with each image
+
+        //example:
+        console.log("photos"+response2['data'][0]['images'][i]['source'])
+
+        $('body').append("<img class='tile' src='"+response2['data'][i]['images'][0]['source'] + "'>  ");
+
+         
+      }
+         
+      })
+
+    }
+
+
+  </script>
+
+
+
+  </head>
+
+  <body>
+
+
+
+
+
+  <div id="login">
+  <img id='FBlogo' src="fb.png" class='animated bounceInUp' style="width:300" id="cFb" onClick="loginUser();"><center><font size=1>
+ 
+ </div>
+
+  <div id="email"></div>
+  <div id="photos" class="animated swing"></div>
+  <div id="name" class='animated fadeInDownBig'></div>
+  
+ 
+ 
+
+  <div id="fb-root"></div>
+</body>
+</html>

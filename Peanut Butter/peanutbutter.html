@@ -1,0 +1,795 @@
+
+<!doctype html>
+<!--[if IE 9]>    <html class="ie9" > <![endif]-->
+<!--[if IE 10]>    <html class="ie10" > <![endif]-->
+<!--[if IE 11]>    <html class="ie11" > <![endif]-->
+<!--[if (gt IE 11)|!(IE)]><!--> <html lang="en-US"> <!--<![endif]-->
+    <head>
+
+        
+
+        <title>Peanut Butter</title>
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+
+        <meta name="description" content="Peanut Butter brings learning to code together. Make a code sandwich by shmearing the correct code." />
+        <meta name="keywords" content="learn to code, pnt bttr, peanut butter, coded peanut butter, learn how to code tool, peanut butter programming, fun ways to learn programming, {c}0dEd apps, coded apps, coded web apps" /> 
+
+
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/responsive.css">
+        <link rel="stylesheet" href="css/animations.css">
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700,500,600' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic' rel='stylesheet' type='text/css'>
+
+        <link rel="shortcut icon" href="images/favicon.png">
+
+        <!--[if lt IE 9]>
+            <script src="js/html5shiv.js"></script>
+        <![endif]-->
+        <style>
+            .logo h1{
+
+                margin-top:-5px;
+            }
+
+            .bun{
+
+                width:75%;
+                height:10%;
+                position:relative;
+                display:block;
+                left:12.5%;
+                background-image:url(images/bun.gif);
+                background-repeat:repeat;
+                top:20%;
+               
+
+            }
+            #bun1{
+                border-radius:13px 13px 0px 0px;
+                /*border-radius makes a curved border*/
+            }
+            #bun2{
+                border-radius:0px 0px 13px 13px;
+            }
+
+            .sandContents{
+
+                width:75%;
+                height:auto;
+                position:relative;
+                display:block;
+                left:12.5%;
+                //background-color:black;
+               // background-image:url(images/bigSand.jpg);
+               //background-position: center center;
+                //background-size: 100%;
+               
+                
+  
+                //background-repeat:repeat;
+                top:20%;
+                
+
+            }
+            
+
+
+            .sandContents .codeText{
+
+                width:100%;
+                height:auto;
+                left:0%;
+                //background-color:#999;
+                opacity:.9;
+                filter: alpha(opacity = 90);
+                color:#FFF;
+                font-size:20px;
+                overflow-x:auto;
+                overflow-y:scroll;
+                max-height:400px;
+
+
+            }
+
+            #stuText{
+
+                width:100%;
+                height:100%;
+                left:0px;
+                font-size:24px;
+                opacity:.5;
+                filter: alpha(opacity = 50);
+                position:absolute;
+                z-index:4;
+                border-radius:0px 0px 13px 13px;
+            
+            }
+
+            #stuTextBack{
+
+                width:100%;
+                height:100%;
+                left:0px;
+                font-size:24px;
+                opacity:.5;
+                filter: alpha(opacity = 50);
+                position:absolute;
+                z-index:1;
+                border-radius:0px 0px 13px 13px;
+            }
+
+            #sandwichCont{
+
+                
+                height:100%;
+                width:100%;
+                display:none;
+                }
+
+            #pasteCode{
+
+                position:absolute;
+                width:80%;
+                font-size:25px;
+                height:50%;
+                max-height:50%;
+                overflow:scroll;
+                top:20%;
+                left:7%;
+            }
+
+            #memorizeBut{
+
+                position:absolute;
+                top:85%;
+                right:10%;
+            }
+
+            .learn {
+border: 3px solid #c2cace;
+color: #636c6c;
+padding: 16px 50px;
+}
+
+.download {
+transition: all 1s;
+-webkit-transition: all 1s;
+border: 3px solid #92b1b6;
+display: inline-block;
+border-radius: 50px;
+font: 21px 'Raleway', sans-serif;
+color: #92b1b6;
+font-weight: 700;
+text-decoration: none;
+padding: 14px 54px;
+display: inline-block;
+background-color:white;
+}
+
+
+    #firstStep{
+
+        display:none;
+    }
+    #firstStep textarea{
+        border-radius:30px;
+
+        padding:30px;
+        background-color:black;
+        color:#99CCFF
+    }
+
+    .elementS{
+
+        padding:10px;
+        border-radius:20px;
+        width:98%;
+        max-width:97%;
+        overflow:auto;
+        height:auto;
+        word-wrap:break-word;
+    }
+
+    .score1{
+        position:fixed;
+        width:100%;
+        z-index:2000;
+        font-size:13px;
+        left:83%;
+        top:29px;
+
+    }
+        </style>
+    </head>
+    <body>
+	<div class="score1">
+
+        <div id="userScore">0 points</div><br>
+
+        
+
+
+    </div>
+		<div id="sandwich" class="container animated slide" ></div>
+
+        <!-- HEADER -->
+        <header>
+            <div class="container">
+                <div class="row">
+                    <div class="span2 logo">
+                        <a href="index.html"><h1>Pnt Bttr</h1></a>
+                    </div>
+                    <div class="span6 nav">
+                        <ul id="top-menu">
+                            <li><a href="#sandwich" class="active">Sandwich</a></li>
+                            <li><a href="#getStarted" id="getStartButton">Getting Started</a></li>
+                           <!-- <li><a href="#screenshots">Screenshots</a></li>
+                            <li><a href="#testimonials">Testimonials</a></li>-->
+                        </ul>
+                    </div>
+                 <!-- <div class="span4 contact">
+                        <h5 class="phone">800-123-456</h5>
+                        <h5 class="email"><a href="#">smallapps@gmail.com</a></h5>
+                    </div>-->
+                </div>
+            </div>
+        </header>
+        <!-- HEADER -->
+
+        <!-- BANNER -->
+        <div id="s1">
+            <div class="banner">
+                <div class="container">
+
+                   
+                    <div class="row">
+
+
+
+                       
+
+
+                        <div class="span12 banner-content" id="congrats">
+                           
+
+
+                            <div id="sandwichCont">
+                               <div class="bun" id="bun1">
+
+                            </div>
+
+                            <div class="sandContents">
+                                <div class="codeText">
+
+
+                                </div>
+
+                            </div>
+
+                            <div class="bun" id="bun2">
+                                <input id="stuText" >
+                                <input id="stuTextBack" value="// write this to get started" readonly="readonly" disabled>
+                            </div>
+
+                            </div>
+
+
+
+
+                             <div id="firstStep">
+                                <textarea id="pasteCode" placeholder="Paste the code you want to memorize or leave blank and just press the 'Build Sandwich' button to use default code."></textarea>
+                                <textarea id="pasteCode2"  style="display:none">$(document).ready(init);
+
+                //defining function 
+            function init(){
+                
+                    keyListener()
+            }
+
+            //add event listener to html element that detects left or right key and sends data to callback function
+            function keyListener(){
+
+                    $('html').on('keydown', keyCallback);
+
+            }
+
+            //callback function for  keyListener
+            function keyCallback(e){
+                //alert(e.keyCode);
+                keyCode= e.keyCode;
+                
+                switch(keyCode){
+
+                    case 37:
+                        charPos=$('#character').css('left');
+                        charPos= charPos.replace('px', '');
+                        charPos = parseInt(charPos);
+                        //now charPos is a number
+
+                        charPos= charPos-5;
+                        newPos= charPos +"px";
+                        $('#character').css({'left':newPos})
+                    break;
+
+                    case 39:
+                         //character position
+                        charPos=$('#character').css('left');
+                        charPos= charPos.replace('px', '');
+                        charPos = parseInt(charPos);
+                        //now charPos is a number
+
+                        charPos= charPos+5;
+                        newPos= charPos +"px";
+                        $('#character').css({'left':newPos})
+                    break;
+                }
+                
+            }</textarea>
+
+
+                                <a href="#" id="memorizeBut" class="download learn">Build Sandwich</a>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <!-- <div class="banner2">
+                <div class="container">
+                    <div class="row">
+                        <div class="span12 banner-content">
+                            <h1>Perfect app landing page</h1>
+                            <h4>Duis bibendum diam</h4>
+                            <a href="#" class="download">DOWNLOAD</a>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+        <!-- BANNER -->
+
+        
+      
+
+        
+
+        
+        
+
+        <!-- I-PHONE DETAIL -->
+        <div class="iphone-detail animated slide" id="getStarted">
+            <div class="container">
+                <div class="row">
+                    <div class="span6 image-section">
+                        <img src="images/two-phone.jpg" alt="image"/>
+                    </div>
+                    <div class="span6 about-iphone">
+                        <h1>Peanut Butter brings learning to code together</h1><span></span>
+                        <h2>Make a code sandwich by shmearing the correct code</h2>
+                        <p>Type the code on the bottom slice, and watch your code sandwich grow, one ingredient at a time. </p>
+                        <a href="#dev"  id= "getStartClick" class="download learn">GET STARTED</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+
+       
+    
+
+        <!--Beta 
+        <div class="subscribe animated slide">
+            <div class="container ">
+                <div class="row">
+                    <div class="span12">
+                        <h1>Subscribe our Newsletter</h1>
+                    </div>
+                    <div class="span12">
+                        <form id="subscribeForm" class="submit-form" action="mail.php" method="post">
+                            <input type="text" name="email" class="email required" placeholder="your email address"/>
+                            <input type="submit" value="SUBMIT"/>
+                            <p id="form_result"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        end beta -->
+
+        <!-- 
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="span12">
+                        <h3>Say Hi, Get In Touch</h3>
+                    </div>
+                    <div class="span12 social">
+                        <a href="#" class="facebook"></a>
+                        <a href="#" class="twitter"></a>
+                        <a href="#" class="pin"></a>
+                        <a href="#" class="google"></a>
+                        <a href="#" class="youtube"></a>
+                    </div>
+                    <div class="span12 footer-nav">
+                        <ul>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Support</a></li>
+                            <li><a href="#">Developers</a></li>
+                            <li><a href="#">Privacy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        end footer-->
+
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/jquery.carouFredSel-6.1.0-packed.js"></script>
+        <script src="js/jquery-ui-1.10.3.custom.js"></script>
+        <script src="js/jquery.cycle.all.js"></script>
+        <script src="js/jquery.appear.js"></script>
+        <script src="js/jquery.nav.js"></script>
+        <script src="js/jquery.scrollTo.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/jquery.form.js"></script>
+        <script src="js/jquery.validate.js"></script>
+        <script src="js/custom.js"></script>
+
+        <script>
+            //variable for when use will be overwritten
+            var newText;  //the text as you're typing it in the box
+            var lastLineCompleted;
+
+            //code user pasted in beginning
+            var pasteCode="";
+
+            //all lines of pastCode
+            var pasteArr; //pastes everything into an array
+            currentUserLine=0;
+
+            //sounds
+
+            var sound;
+            var sound1;
+            var sound2;
+
+            $(document).ready(init);
+
+            function init(){
+
+                //initiation sequence
+                //scroll to get Started when page loads up
+                loadGetStart();
+                getStartClick();
+                checkText();
+                buildSandwich();
+                //attach event listeners
+
+
+                //load sound
+                loadSand();
+                loadSplat();
+                loadAdd();
+                addTweetButton();
+
+                //screen size adjustement
+                screenInputCheck();
+            }
+
+
+            function checkText(){
+                $('#stuText').on('keyup', checkMatch)
+                $('#stuText').on('keydown', function(e){
+
+                     if (e.keyCode == 9) {
+                    // prevent default tab action and replace with space
+                        console.log('tab cancelled');//console sends this info to the console
+                        $('#stuText').val($('#stuText').val()+ " ");
+                        e.preventDefault();
+
+                    }
+                })
+            }
+
+            function checkMatch(e){
+                //alert();
+
+
+                key= e.keyCode;
+
+
+                //get text from stuText
+                //get text from stuTextBack
+
+                stuText= $('#stuText').val();
+                stuTextBack= $('#stuTextBack').val();
+
+                //if user is complete stuText and stuBack will be equal
+                if(stuTextBack== stuText){
+
+                        pushLineToBody();
+                        return;
+                }
+                
+
+                charUserIsOn= stuText.length;
+                stuTextSub = stuTextBack.substr(0, charUserIsOn);
+                if(stuTextSub !=stuText){
+                   console.log('wrong');
+                   charUserIsOnMinus1 = charUserIsOn -1;
+                    newText = stuText.substr(0, charUserIsOnMinus1);
+                   
+
+                        $('#stuText').val(newText);
+                 
+                    
+                    //delete last character the user typed
+
+                }
+                //check if they match up to them number of character user is on
+
+                //if user completes text and it's an exact match, put it in the sandwich, and get next line from the code
+            }
+
+            //clear text, get new text, and put old line completed in body of sandwich
+            function pushLineToBody(){
+
+                userP = getUserPoints();
+                //add 1 point to user localstorage and update twitter button for sharing score
+                localStorage.setItem('points', userP+1);
+                addTweetButton();
+
+                currentUserLine= currentUserLine+1;
+                if(typeof pasteArr[currentUserLine] == 'undefined'){
+                     $('#firstStep').fadeIn();
+                        $('#sandwichCont').hide();
+                         $('#firstStep textarea').val('');
+                    $('#firstStep textarea').attr('placeholder', 'Congrats! You finished your code! You can paste more code here to continue.');
+                        currentUserLine=0;
+                        $('#stuText').val('');
+                        $('.codeText').html('');
+
+                    return;
+                }
+                $('#stuTextBack').val(pasteArr[currentUserLine]);
+                 stuText= $('#stuText').val();
+                 $('#stuText').val('');
+                 randNum= Math.floor((Math.random()*5))
+                 randColArr= ['yellow', 'red', 'green', 'purple', 'orange'];
+                 //randCol= randColArr[randNum];
+                 randCol= getColorByType(stuText);
+                 console.log('randNum'+randNum);
+
+                 $('.codeText').append('<div class="elementS" style="background-color:'+randCol+'"><xmp>'+stuText+'</xmp></div>');
+
+                 $(".codeText").scrollTop($(".codeText")[0].scrollHeight);
+                 if(pasteArr[currentUserLine].indexOf('//') !=-1){
+
+                    $('#stuText').val($('#stuTextBack').val());
+                    pushLineToBody();
+                 }
+
+            }
+
+
+            function getColorByType(lineOfCode){
+                l=lineOfCode;
+                if(lineOfCode.indexOf('//')!=-1){
+                    //orgish red... alert... note
+                    return "#FF3300";
+                }
+                else if(lineOfCode.indexOf('function')!=-1 || lineOfCode.indexOf('{')!=-1 || lineOfCode.indexOf('}')!=-1 ){
+
+                    //brownish as peanut butter... keeps everything together
+                    return "#996600";
+                }
+                else if(lineOfCode.indexOf('/>')!=-1){
+                    //html in the body are tomatoes
+                    return "#CC3333";
+                }
+
+                else{
+                    //all other colors are purple, cause it looks good and I like onions
+                    return "#990066";
+                }
+
+
+
+            }
+
+            function loadGetStart(){
+
+                $('#getStartButton').click();
+            }
+
+            function scrollTop(){
+                 $('#sandwichCont').hide();
+                $('#firstStep').fadeIn();
+                $("html, body").animate({scrollTop:0}, '1000');
+            }
+
+            //event listeners
+
+            //getStartedButton listener
+            function getStartClick(){
+
+                $('#getStartClick').on('click', scrollTop);
+                
+            }
+
+            function screenInputCheck(){
+
+                //make input size smaller if screen is small
+                if (parseInt(screen.width)<500){
+                    $('#stuText,#stuTextBack').css('font-size','15px');
+
+
+                }
+                
+
+            }
+
+            function buildSandwich(){
+
+
+                $('#memorizeBut').on('click', function(){
+                     playSand();
+
+                     setTimeout(function(){
+
+                        playSplat();
+                     },900);
+                        pasteCode= $('#pasteCode').val();
+                        if(pasteCode=="" || pasteCode==" "){
+
+                            pasteCode=$('#pasteCode2').text();
+                        }
+                        pasteArr= pasteCode.split('\n');
+                        for(i=0; i<pasteArr.length; i++){
+                            newLine= pasteArr[i].replace(/\s+/g, ' ');
+                            console.log(newLine);
+                            pasteArr[i]= newLine;
+                            if(pasteArr[i]=="" || pasteArr[i]==" "){
+                                console.log('found blank');
+                                pasteArr.splice(i, 1);
+                            }
+                        }
+
+                         for(i=0; i<pasteArr.length; i++){
+                            newLine= pasteArr[i].replace(/\s+/g, ' ');
+                            console.log(newLine);
+                            pasteArr[i]= newLine;
+                            if(pasteArr[i]==""){
+                                console.log('found blank');
+                                pasteArr.splice(i, 1);
+                            }
+                        }
+
+                        pasteArr=pasteArr;
+
+
+                         $('#firstStep').hide();
+                         $('#sandwichCont').fadeIn();
+                         $('#bun1').css({'top':'-50%'}); $('#bun1').animate({'top':'20%'},1000);
+                         $('#stuText').focus();
+                         $('#stuTextBack').val(pasteArr[currentUserLine]);
+
+                });
+               
+            }
+
+
+            function loadSound (src) {
+    var sound = document.createElement("audio");
+    if ("src" in sound) {
+        sound.autoPlay = false;
+    }
+    else {
+        sound = document.createElement("bgsound");
+        sound.volume = -10000;
+        sound.play = function () {
+            this.src = src;
+            this.volume = 0;
+        }
+    }
+    sound.src = src;
+    document.body.appendChild(sound);
+    return sound;
+ }
+
+
+ function loadSand(){
+    sound = loadSound("audio/fridge-4-close.mp3");  //  preload
+
+
+ }
+
+ function playSand(){
+
+    sound.play();
+ }
+ function loadSplat(){
+    sound1 = loadSound("audio/splat.mp3");  //  preload
+
+
+ }
+
+ function playSplat(){
+
+    sound1.play();
+ }
+
+ function loadAdd(){
+    sound2 = loadSound("audio/fridge-4-close.mp3");  //  preload
+
+
+ }
+
+ function playAdd(){
+
+    sound2.play();
+ }
+
+ function getUserPoints(){
+
+    var points= localStorage.getItem('points');
+    if(points == undefined || points =="null" || points==null){
+        points=0;
+    }
+    else{
+        points= parseInt(points);
+    }
+    if(points!=1){
+         $('#userScore').html(points+ " points");
+    }
+    else{
+       $('#userScore').html(points+ " point"); 
+    }
+   
+    return points;
+
+ }
+
+ function addTweetButton(){
+    $('.twitterInsert').remove();
+    userP= getUserPoints();
+
+    //userP=100;
+
+
+
+    if(userP>1){
+          $('.score1').append('<div class="twitterInsert">'+"<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</"+"script>"+'<a href="https://twitter.com/share" class="twitter-share-button" data-text="Coding up some #peanutbutter sandwiches. '+userP+' lines so far!" data-url="http://thecoded.com/peanutbutter" data-related="itsdeshazer" data-count="none" data-hashtags="appfactory">Tweet</a></div>'); 
+
+    }
+
+    else{
+
+       
+          $('.score1').append('<div class="twitterInsert">'+"<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</"+"script>"+'<a href="https://twitter.com/share" class="twitter-share-button" data-text="Learning to code? Check out #peanutbutter to help memorize syntax!" data-url="http://thecoded.com/peanutbutter" data-related="itsdeshazer" data-count="none" data-hashtags="appfactory">Tweet</a></div>'); 
+        
+    
+    }
+  
+ }
+ 
+
+
+        </script>
+
+    </body>
+</html> 
+
+
+        </script>
+
+    </body>
+</html>

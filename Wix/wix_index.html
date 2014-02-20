@@ -1,0 +1,93 @@
+<html>
+<head>
+    <title>Nin and Tim's Wix Lounge Project</title>
+    <script type="text/javascript"></script>
+    <script src="http://thecoded.com/facebook/wix/js/jquery.js"></script> 
+    <style type="text/css">
+    /* to get the image to show properly on the web page, add bckground-size */
+
+    	.background-image {
+    		position: absolute;
+    		left: 0px;
+    		right: 0;
+    		top: 0px;
+    		z-index: -1;
+    		display: block;
+    		background-image: url("http://thecoded.com/facebook/wix/img/class.jpg");
+    		width: 100%;
+    		height: 100%;
+    		background-size: cover;
+    		-webkit-filter: blur(10px);
+    	}
+      /* need to reposition faceboook button. will come back to this*/
+      #login {
+        z-index: 2;
+        position: absolute;
+        //text-align: center;
+        //margin: 0 auto; 
+
+      }
+    	
+    </style>
+
+</head>
+<body>
+	<div id="fb-root"></div>
+    <script>
+
+      function loginUser() {
+        FB.login(function(response) { }, {scope:'email, user_photos'});
+
+
+      }
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1461995207347184', // App ID
+          channelUrl : 'http://thecoded.com', // channel file
+          status     : true, // check login status
+          cookie	   : true, // enable cookies to allow the server to access the session
+          xfbml      : true  // parse XFBML
+        });
+        FB.Event.subscribe('auth.statusChange', handleStatusChange);
+      };
+
+
+// Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "https://connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+
+      //This is the function that Facebook said to use
+      //(function(d, s, id){
+        // var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+        // if (d.getElementById(id)) {return;}
+        // js = d.createElement(s); js.id = id; 
+         //js.src = "//connect.facebook.net/en_US/all.js";
+         //ref.parentNode.insertBefore(js,ref); // changed from fjs to ref. what does that do ?? changing ref back to fjs allows the fb login
+       //}(document));
+
+     //callback function of the status change from not logged in to logged in
+     function handleStatusChange(response) {
+       document.body.className = response.authResponse ? 'connected' : 'not_connected';
+
+       if (response.authResponse) {
+        console.log(response);
+        response1= response;
+        updateUserInfo(response);
+        
+
+       }
+     }
+
+    </script>
+
+	<div class="background-image"></div>
+	<div id="login">
+    <img src="fb.png" style="width: 300" id="cFb" onClick="loginUser();"><font size=1>
+  </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<html>
+
+<head>
+<script src="/Users/Admin/Desktop/Apps/js/jquery.js"></script>
+<script>
+
+
+
+        teamsArray = ["Knicks","Nets","Bucks","Celtics","Rockets","Sixers"];
+
+        playersArray = {Knicks:"Anthony",Nets:"Williams",Bucks:"Ellis",Celtics:"Rondo",Rockets:"Howard",Sixers:"Turner"};
+
+        people = {Ryan:"Blue",Terence:"Gray",Alex:"Black"}
+
+        for (var i = 0; i < teamsArray.length; i++){
+
+
+            console.log(teamsArray[i])
+            
+        };
+
+        for(i in playersArray){
+
+                console.log(i+": "+playersArray[i]);
+        }
+
+
+        for(i in people){
+
+            if(people[i]=="Black")
+
+                console.log(people[i]);
+        }
+
+        for(i in people){
+
+            if(people[i]=="Black")
+
+                console.log(i);
+        }
+
+
+        function search(){
+
+            $.ajax({
+
+                url:'Array/array.php'
+                data:{siteUrl:$('#webSubmit').val()},
+                complete: function(transport){
+
+                    $('#websiteData').html(transport.responseText);
+                }
+
+
+            })
+        }
+
+</script>
+
+    <style>
+   
+
+
+    
+
+    </style>
+</head>
+
+<body>
+
+    <dv id='container'>
+            <input id='webSubmit' placeholder='Enter URL' onblur='search()'>
+
+            <div id='websiteData'>
+
+            </div>
+
+    
+
+</body>
+
+
+
+
+</html>

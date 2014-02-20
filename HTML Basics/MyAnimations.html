@@ -1,0 +1,72 @@
+<html>
+
+
+	<head>
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+		<script>
+
+				//add event listener to document to wait for doc to be ready.  Attach callback function to event listener init.
+			$(document).ready(init);
+			
+				//defining function
+			function init(){
+
+				addButtListener();
+				addImageListener();
+				addDivListener();
+
+			}
+
+				//listener for button
+				function addButtListener(){
+					
+
+					$('#butt1').on('click', function(e){
+
+							alert('eat sh*t')
+					})
+					//button is going to alert a vulgar message
+				}
+
+				function addImageListener(){
+
+					$('#photo1').on('click', function(e){
+							console.log(e);
+							//alert('knicks suck');
+							$(this).animate({left:'100px', 'top':'100px'});
+						
+							setTimeout(function(){
+								$('#photo1').animate({left:'0px', 'top':'0px'});
+							}, 2000)
+
+					})
+				}
+
+				function addDivListener(){
+
+				}
+
+
+		</script>
+
+
+
+
+	</head>
+
+
+	<body>
+
+		
+		<input type="button" value="click me" id="butt1">
+
+		<br><br><br>
+		<img src="http://swipe.swipelife.netdna-cdn.com/wp-content/uploads/2011/01/Knicks-logo.gif" id="photo1" style='position:absolute'>
+
+
+
+	</body>
+
+
+</html>
